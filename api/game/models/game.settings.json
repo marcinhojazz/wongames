@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "games",
   "info": {
-    "name": "game"
+    "name": "game",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -20,6 +21,49 @@
       "type": "uid",
       "targetField": "name",
       "required": true
+    },
+    "short_description": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "release_date": {
+      "type": "date"
+    },
+    "rating": {
+      "type": "enumeration",
+      "enum": [
+        "FREE",
+        "peg3",
+        "peg7",
+        "peg12",
+        "peg16",
+        "peg18"
+      ]
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "gallery": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }
